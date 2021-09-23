@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL shortner</title>
+    <style>
+        body {
+            background-color: powderblue;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            color: blue;
+            /* text-align: center; */
+        }
+
+        button {
+            font-size: 17px;
+            color: white;
+            background-color: green;
+            border-radius: 15px;
+            width: 70px;
+            height: 50px;
+        }
+
+        form {
+            width: 50%;
+            display: flex;
+        }
+
+        input {
+            border-radius: 10px;
+            width: 100%;
+            height: 40px;
+            border: none;
+            margin: 10px;
+        }
+
+        table {
+            width: 70%;
+            padding-top: 20px;
+        }
+
+        table,
+        td,
+        th {
+            border-radius: 5px;
+        }
+
+        table,
+        thead,
+        tr {
+            font-size: 25px;
+        }
+
+        table,
+        tbody,
+        tr,
+        td {
+            font-size: 25px;
+        }
+
+        th {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <div class="container"> -->
+    <h1>URL shortner</h1>
+    <form action="/shortUrls" method="POST">
+        <!-- <label for="fullUrl">Url</label> -->
+        <input type="url" name="fullUrl" id="fullUrl">
+        <button type="submit">Submit</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Full URL</th>
+                <th>Short URL</th>
+                <th>Clicks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% shortUrls.forEach(shortUrl=> { %>
+                <tr>
+                    <td><a href="<%= shortUrl.full %>"><%= shortUrl.full %></a></td>
+                    <td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
+                    <td><%= shortUrl.clicks %></td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+    <!-- </div> -->
+</body>
+
+</html>
